@@ -6,8 +6,8 @@ import {useState} from "react";
 
 function Characters() {
   const [characters, setCharacters] = useState([]);
-  const [currPage, setCurrPage] = useState(1);
-  const [pageSize, setPageSize] = useState(5);
+  const [page,setPage] = useState(1);
+  const [pageSize,setPageSize] = useState(10);
 
   async function getCharacters(){
     const {data: characters, isError} = await ASOIAFapi.getCharacters();

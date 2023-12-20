@@ -2,20 +2,30 @@ import styles from "./Houses.module.css";
 import ASOIAFapi from "../../services/ASOIAFApi";
 import Pagination from "../../components/Pagination/Pagination";
 
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import { useParams } from "react-router";
+
 
 function Houses() {
+    let page = 1;
+    let pageSize = 10;
+    
     const [houses, sethouses] = useState([]);
+    const params = useParams();
+    console.log(JSON.stringify(params));
   
-    async function getHouses(){
+    useEffect(() => {
+      
+      async function getHouses(){
       const {data: houses, isError} = await ASOIAFapi.getHouses();
-  
-      if(!isError){
-        sethouses(houses);
+        if(!isError){
+          sethouses(houses);
+        }
       }
-    }
-  
+
     getHouses();
+    return () => {}
+  }, [page, pageSize])
 
     return (
       <>
