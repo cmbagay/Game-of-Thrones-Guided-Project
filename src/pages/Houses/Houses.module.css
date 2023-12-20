@@ -1,0 +1,41 @@
+.houses
+{
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  padding: 2rem;
+  border: 2px dotted #ffffff;
+}
+
+.houses--selected
+{
+  border-color: #ce3d3d;
+}
+
+.houses:not(.houses--selected):hover
+{
+  border-color: #6cd265;
+}
+
+
+.houses__info
+{
+  font-size: 1rem;
+}
+
+.houses__characters
+{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.houses__character
+{
+  padding: 2rem 2rem 2rem 0;
+}
+
+
+.houses__character__info
+{
+  font-size: 1rem;
+}

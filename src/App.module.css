@@ -1,0 +1,35 @@
+.app {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    min-height: 100vh;
+  }
+  
+  .app__header
+  .app__footer {
+    height: 1rem;
+    margin: 1rem 3rem;
+  
+  }
+  
+  .app__header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-end;
+    align-content: center;
+  }
+  
+  
+  .app__main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  
