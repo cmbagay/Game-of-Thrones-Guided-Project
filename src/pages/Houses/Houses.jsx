@@ -1,14 +1,14 @@
 import styles from "./Houses.module.css";
 import ASOIAFapi from "../../services/ASOIAFApi";
+import Pagination from "../../components/Pagination/Pagination";
 
-import {useState, useEffect} from "react";
-import { useNavigate } from "react-router-dom";
+import {useState} from "react";
 
 function Houses() {
     const [houses, sethouses] = useState([]);
   
     async function getHouses(){
-      const {data: houses, isError} = await ASOIAFapi.gethouses();
+      const {data: houses, isError} = await ASOIAFapi.getHouses();
   
       if(!isError){
         sethouses(houses);
@@ -49,6 +49,7 @@ function Houses() {
             </div>
             )
           }
+          <Pagination />
         </div>
       </>
     );
