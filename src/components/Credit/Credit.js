@@ -3,9 +3,12 @@ import styles from "./Credit.module.css";
 function Credit() {
   return (
     <div className={styles["Credit"]}>
-      <span className={styles["Credit__text"]}>
-        Powered by the An API of Ice and Fire by Joakim Skoog
-      </span>
+      <a
+        className={styles["Credit__text"]}
+        href="https://anapioficeandfire.com/"
+      >
+        Powered by the anapioficeandfire by Joakim Skoog
+      </a>
     </div>
   );
 }

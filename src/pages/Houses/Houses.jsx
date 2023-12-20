@@ -36,12 +36,12 @@ function Houses() {
 
                 <div className={styles["houses__info"]}>
                   <span>current lord:</span>
-                  <span>{renderInfo(houses.currentLord)}</span>
+                  <span>{houses.currentLord}</span>
                 </div>
 
                 <div className={styles["houses__info"]}>
                   <span>sworn members:</span>
-                  <span>{renderInfo(houses.swornMembers)}</span>
+                  <span>{houses.swornMembers}</span>
                 </div>
 
                 
