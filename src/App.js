@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import AppRoute from "./routes/AppRoute";
 import Credit from "./components/Credit/Credit";
+import Pagination from "./components/Pagination/Pagination";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
 
           <main className={styles["app__main"]}>
             <AppRoute />
+            <Pagination page={1} pageSize={20} />
           </main>
 
           <footer className={styles["app__footer"]}>

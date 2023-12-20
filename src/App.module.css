@@ -26,10 +26,12 @@
   
   .app__main {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-direction: column;
+
     justify-content: center;
     align-items: center;
     align-content: center;
+
+    overflow:auto;
   }
   

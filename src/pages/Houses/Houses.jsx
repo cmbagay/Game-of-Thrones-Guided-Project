@@ -3,21 +3,23 @@ import ASOIAFapi from "../../services/ASOIAFApi";
 import Pagination from "../../components/Pagination/Pagination";
 
 import {useEffect, useState} from "react";
-import { useParams } from "react-router";
+import { useLocation } from "react-router-dom";
 
 
 function Houses() {
-    let page = 1;
-    let pageSize = 10;
-    
+
     const [houses, sethouses] = useState([]);
-    const params = useParams();
-    console.log(JSON.stringify(params));
-  
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+
+    const page = parseInt(queryParams.get('page'), 10);
+    const pageSize = parseInt(queryParams.get('pageSize'), 10);
+ 
+    console.log(pageSize);  
     useEffect(() => {
       
       async function getHouses(){
-      const {data: houses, isError} = await ASOIAFapi.getHouses();
+      const {data: houses, isError} = await ASOIAFapi.getHouses(page, pageSize);
         if(!isError){
           sethouses(houses);
         }
@@ -59,7 +61,6 @@ function Houses() {
             </div>
             )
           }
-          <Pagination />
         </div>
       </>
     );

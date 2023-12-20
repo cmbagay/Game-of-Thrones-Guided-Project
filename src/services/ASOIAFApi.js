@@ -8,8 +8,22 @@ class ASOIAFapi {
     };
   }
 
-  static async getHouses(page, pageSize) {
-    const url = `https://anapioficeandfire.com/api/houses?page=${page}&pageSize-${pageSize}`;
+  static async isNumber(num) {
+    const result = typeof num === "number";
+    console.log(result, num);
+    return result;
+  }
+
+  static async getHouses(p, ps) {
+    let page = 1;
+    let pageSize = 10;
+    if (this.isNumber(p) && this.isNumber(ps)) {
+      page = p;
+      pageSize = ps;
+    }
+
+    console.log("api: ", p);
+    const url = `https://anapioficeandfire.com/api/houses?page=${page}&pageSize=${pageSize}`;
     const response = this.prepareResponse();
     try {
       const result = await axios.get(url);

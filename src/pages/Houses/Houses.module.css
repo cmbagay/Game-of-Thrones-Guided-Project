@@ -1,13 +1,15 @@
 .houses
 {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
 
   width: 60vw;
   margin: 2rem;
   padding: 2rem;
   border: 2px dotted #ffffff;
+
 }
 
 .houses--selected
@@ -24,6 +26,7 @@
 .houses__info
 {
   font-size: 1rem;
+  text-wrap: wrap;
 }
 
 .houses__characters
