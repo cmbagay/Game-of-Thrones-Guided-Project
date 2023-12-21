@@ -1,11 +1,10 @@
 .houses
 {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
+	flex-direction: column;
+	align-items: center;
 
-  width: 60vw;
+  width: 50vw;
   margin: 2rem;
   padding: 2rem;
   border: 2px dotted #ffffff;
@@ -19,29 +18,11 @@
 
 .houses:not(.houses--selected):hover
 {
-  border-color: #6cd265;
+  border-color: red;
 }
-
 
 .houses__info
 {
   font-size: 1rem;
-  text-wrap: wrap;
 }
 
-.houses__characters
-{
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.houses__character
-{
-  padding: 2rem 2rem 2rem 0;
-}
-
-
-.houses__character__info
-{
-  font-size: 1rem;
-}

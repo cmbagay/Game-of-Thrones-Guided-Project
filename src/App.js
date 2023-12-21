@@ -18,7 +18,7 @@ function App() {
 
           <main className={styles["app__main"]}>
             <AppRoute />
-            <Pagination page={1} pageSize={20} />
+            <Pagination page={1} pageSize={10} />
           </main>
 
           <footer className={styles["app__footer"]}>
