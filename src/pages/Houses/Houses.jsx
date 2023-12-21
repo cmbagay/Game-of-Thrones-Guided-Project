@@ -28,44 +28,36 @@ function Houses() {
     return () => {}
   }, [page, pageSize])
 
-    function checkData(data){
-      if(data != ""){
-        return data
-      }
-    }
 
-    return (
-      <>
-        <div>
-          {
-            houses.map((houses, index) => 
-            <div key={houses.id} className={styles["houses"]}>
-               <div className={styles["houses__infoContainer"]}>
-                <div className={styles["houses__info"]}>
-                  <span>name: {houses.name}</span>
-                </div>
+  return (
+    <>
+      <div>
+        {
+          houses.map((houses, index) => 
+          <div key={houses.id} className={styles["houses"]}>
+            <div className={styles["houses__infoContainer"]}>
+              <div className={styles["houses__info"]}>
+                <span>name: {houses.name}</span>
+              </div>
 
-                <div className={styles["houses__info"]}>
-                  <span>titles: {houses.titles}</span>
-                </div>
+              <div className={styles["houses__info"]}>
+                <span>titles: {houses.titles}</span>
+              </div>
 
-                <div className={styles["houses__info"]}>
-                  <span>current lord: {houses.currentLord}</span>
-                </div>
+              <div className={styles["houses__info"]}>
+                <span>current lord: {houses.currentLord}</span>
+              </div>
 
-                <div className={styles["houses__info"]}>
-                  <span>sworn members: {houses.swornMembers}</span>
-                </div>
-
-                
+              <div className={styles["houses__info"]}>
+                <span>sworn members: {houses.swornMembers}</span>
               </div>
             </div>
-            )
-          }
-        </div>
-      </>
-    );
-  }
+          </div>
+        )}
+      </div>
+    </>
+  );
+}
   
 
 export default Houses;
