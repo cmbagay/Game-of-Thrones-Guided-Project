@@ -37,7 +37,7 @@ function Houses() {
           <div key={houses.id} className={styles["houses"]}>
             <div className={styles["houses__infoContainer"]}>
               <div className={styles["houses__info"]}>
-                <span>name: {houses.name}</span>
+                <span><h4>{houses.name}</h4></span>
               </div>
 
               <div className={styles["houses__info"]}>

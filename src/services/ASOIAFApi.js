@@ -42,7 +42,6 @@ class ASOIAFapi {
       pageSize = ps;
     }
 
-    console.log("api: ", p);
     const url = `https://anapioficeandfire.com/api/characters?page=${page}&pageSize=${pageSize}`;
     const response = this.prepareResponse();
     try {
