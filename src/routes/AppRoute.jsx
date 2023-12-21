@@ -12,8 +12,6 @@ function AppRoute() {
       <Route path="/character" element={<Characters />} />
       <Route path="/character/:id" element={<Character/>} />
       <Route path="/houses" element={<Houses />} />
-      <Route path="/character/*" element={<Characters />} />
-      <Route path="/houses/*" element={<Houses />} />
     </Routes>
   );
 }

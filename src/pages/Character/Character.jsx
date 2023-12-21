@@ -17,64 +17,53 @@ function Character() {
   }
   
   getCharacter();
-
+  
   return (
     <>
-      <div>
+      <div className="character__div">
           <div key={character.id} className={styles["character"]}>
              <div className={styles["character__infoContainer"]}>
-
               {
                 character.name ?
                   <div className={styles["character__info"]}>
-                    <span>name:</span>
-                    <span>{character.name}</span>
+                    <span>name: {character.name}</span>
                   </div>
                 :
                   <div className={styles["character__info"]}>
-                    <span>alias:</span>
-                    <span>{character.alias}</span>
+                    <span>alias: {character.alias}</span>
                   </div>
               }
 
               <div className={styles["character__info"]}>
-                <span>culture:</span>
-                <span>{character.culture}</span>
+                <span>culture: {character.culture}</span>
               </div>
 
               <div className={styles["character__info"]}>
-                <span>gender:</span>
-                <span>{character.gender}</span>
+                <span>gender: {character.gender}</span>
               </div>
 
               <div className={styles["character__info"]}>
-                <span>born:</span>
-                <span>{character.born}</span>
+                <span>born: {character.born}</span>
               </div>
 
               <div className={styles["character__info"]}>
-                <span>died:</span>
-                <span>{character.died}</span>
+                <span>died: {character.died}</span>
               </div>
 
               <div className={styles["character__info"]}>
-                <span>titles:</span>
-                <span>{character.titles}</span>
+                <span>titles: {character.titles}</span>
               </div>
 
               <div className={styles["character__info"]}>
-                <span>father:</span>
-                <span>{character.father}</span>
+                <span>father: {character.father}</span>
               </div>
 
               <div className={styles["character__info"]}>
-                <span>mother:</span>
-                <span>{character.mother}</span>
+                <span>mother: {character.mother}</span>
               </div>
 
               <div className={styles["character__info"]}>
-                <span>spouse:</span>
-                <span>{character.spouse}</span>
+                <span>spouse: {character.spouse}</span>
               </div>
               
             </div>

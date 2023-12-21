@@ -12,7 +12,6 @@ function Characters() {
     const page = parseInt(queryParams.get('page'), 10);
     const pageSize = parseInt(queryParams.get('pageSize'), 10);
  
-    console.log(pageSize);  
     useEffect(() => {
       
       async function getCharacters(){
@@ -27,31 +26,53 @@ function Characters() {
   }, [page, pageSize])
 
   return (
-    <>
-      <div>
+      <div className="characters__div">
         {
           characters.map((characters, index) => 
           <Link to={`/character/${characters.id}`}>
           <div key={characters.id} className={styles["characters"]}>
              <div className={styles["characters__infoContainer"]}>
 
+             {
+                characters.name ? 
+                <div className={styles["characters__info__name"]}>
+                    <span>{characters.name}</span>
+                </div>
+                : null
+              } 
+
               {
-                characters.name ?
-                  <div className={styles["characters__info"]}>
-                    <span>name: {characters.name}</span>
-                  </div>
-                :
-                  <div className={styles["characters__info"]}>
+                characters.alias ? 
+                <div className={styles["characters__info__name"]}>
                     <span>alias: {characters.alias}</span>
-                  </div>
+                </div>
+                : null
+              } 
+
+              {
+                !characters.name && !characters.alias ? 
+                <div className={styles["characters__info__name"]}>
+                    <span>Unnamed</span>
+                </div> :
+                null 
+                
               }
 
-              <div className={styles["characters__info"]}>
-                <span>culture: {characters.culture}</span>
-              </div>
+              {
+                characters.culture ? 
+                <div className={styles["characters__info"]}>
+                  <span>{characters.culture}</span>
+                </div>
+                :
+                <div className={styles["characters__info"]}>
+                    <span>Unknown Origin</span>
+                </div>
+              }
+                
+             
 
               <div className={styles["characters__info"]}>
-                <span>gender: {characters.gender}</span>
+                <span>{characters.gender}</span>
               </div>
               
             </div>
@@ -60,7 +81,6 @@ function Characters() {
           )
         }
       </div>
-    </>
   );
 }
 

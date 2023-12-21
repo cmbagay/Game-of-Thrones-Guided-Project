@@ -1,28 +1,5 @@
-main {
-    
-  background-image: url("https://www.nicepng.com/png/full/55-554479_vinilos-game-of-thrones-house-targaryen-transparent.png");
-  background-repeat: no-repeat;
-  height: 50vh;
-  background-position: center;
-
-  display: flex;
-  flex-wrap: nowrap;
+div.Homepage{
+    margin: auto;
 }
-
-h1 {
-  display: flex;
+ 
   
-  align-self: center;
-
-  font-size: 5rem;
-  text-align: center;
-  margin: 20px
- }
-
-h2{
-  display: flex;
-  align-self: center;
-
-  font-size: 3rem;
-  text-align: center;
-}

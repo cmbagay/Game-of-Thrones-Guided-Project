@@ -15,7 +15,6 @@ function Pagination({page, pageSize}) {
   return (
     <div className={styles["Pagination"]}>
         {renderPreviousPageLink()}
-        <button class="dropbtn">{pageSize}</button>
           <div id="myDropdown" class="dropdown-content">
             <Link to={`?page=${page}&pageSize=${10}`}>10</Link>
             <Link to={`?page=${page}&pageSize=${25}`}>25</Link>
