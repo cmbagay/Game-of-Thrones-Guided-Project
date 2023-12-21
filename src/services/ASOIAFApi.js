@@ -55,19 +55,20 @@ class ASOIAFapi {
 
     return response;
   }
-  // static async getCharacters() {
-  //   const response = prepareResponse();
 
-  //   try {
-  //     const mockDb = getMockDb();
-  //     response.data = mockDb.character;
-  //   } catch (error) {
-  //     response.isError = true;
-  //     response.data = error;
-  //   }
+  static async getCharacterById({ id }) {
+    const url = `https://anapioficeandfire.com/api/characters/${id}`;
+    const response = this.prepareResponse();
+    try {
+      const result = await axios.get(url);
+      response.data = result.data;
+    } catch (error) {
+      response.isError = true;
+      response.data = error;
+    }
 
-  //   return response;
-  // }
+    return response;
+  }
 
   // static async getCharacterById({ id }) {
   //   const response = prepareResponse();

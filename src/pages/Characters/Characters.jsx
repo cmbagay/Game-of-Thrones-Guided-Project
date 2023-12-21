@@ -2,7 +2,7 @@ import styles from "./Characters.module.css";
 import ASOIAFapi from "../../services/ASOIAFApi";
 
 import {useEffect, useState} from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Characters() {
   const [characters, setCharacters] = useState([]);
@@ -26,12 +26,12 @@ function Characters() {
     return () => {}
   }, [page, pageSize])
 
-
   return (
     <>
       <div>
         {
           characters.map((characters, index) => 
+          <Link to={`/character/${characters.id}`}>
           <div key={characters.id} className={styles["characters"]}>
              <div className={styles["characters__infoContainer"]}>
 
@@ -56,6 +56,7 @@ function Characters() {
               
             </div>
           </div>
+          </Link>
           )
         }
       </div>

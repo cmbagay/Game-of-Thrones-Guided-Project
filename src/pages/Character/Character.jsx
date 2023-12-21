@@ -21,8 +21,6 @@ function Character() {
   return (
     <>
       <div>
-        {
-          character.map((character, index) => 
           <div key={character.id} className={styles["character"]}>
              <div className={styles["character__infoContainer"]}>
 
@@ -81,8 +79,6 @@ function Character() {
               
             </div>
           </div>
-          )
-        }
       </div>
     </>
   );
