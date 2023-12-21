@@ -30,6 +30,8 @@
   align-items: center;
 
   overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #1b1b1b, 10, 7;
 }
 
 .app

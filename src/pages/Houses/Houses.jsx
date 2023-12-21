@@ -8,19 +8,42 @@ import { useLocation } from "react-router-dom";
 function Houses() {
 
     const [houses, sethouses] = useState([]);
-    const [name, setName] = useState([]);
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
 
     const page = parseInt(queryParams.get('page'), 10);
     const pageSize = parseInt(queryParams.get('pageSize'), 10);
- 
+
     useEffect(() => {
       
       async function getHouses(){
       const {data: houses, isError} = await ASOIAFapi.getHouses(page, pageSize);
+      const mappedHouses = await Promise.all(houses.map(async(house) => {
+        let currentLordName = "";
+        let swornMemberNames = [];
+        if ( house.currentLord) {
+          const currentLordData = await ASOIAFapi.getData(house.currentLord)
+          if (!currentLordData.isError) {
+            currentLordName = currentLordData.data.name;
+          }
+        }
+
+        if (house.swornMembers && Array.isArray(house.swornMembers) && house.swornMembers.length > 0) {
+          const swornMemberData = await Promise.all(house.swornMembers.map(u => ASOIAFapi.getData(u)));
+          swornMemberData.forEach(member => {
+            if (!member.isError) {
+              swornMemberNames.push(member.data.name);
+            }
+          })
+          
+        }
+
+        return {...house, currentLordName, swornMemberNames }
+      }));
+      console.log("mappedHouses : ", mappedHouses);
+
         if(!isError){
-          sethouses(houses);
+          sethouses(mappedHouses);
         }
       }
 
@@ -31,15 +54,6 @@ function Houses() {
       return () => {}
     }, [page, pageSize])
 
-    async function getCharacterByURL(url){
-      console.log(url);
-      const {data: name, isError} = await ASOIAFapi.getCharacterByURL({url})
-      if(!isError){
-        setName(name);
-      }
-      console.log(name);
-      return name;
-    }
   
 
   return (
@@ -63,18 +77,18 @@ function Houses() {
               }
 
               {
-                name === "" ?
+                houses.currentLordName ?
                 <div className={styles["houses__info"]}>
-                  <span>Current Lord: {name}</span>
+                  <span>Current Lord: {houses.currentLordName}</span>
                 </div>
                 :
                 null
               }
 
               {
-                name === "" ?
+                houses.swornMemberNames ?
                 <div className={styles["houses__info"]}>
-                  <span>Sworn Members: {name}</span>
+                  <span>Sworn Members: {houses.swornMemberNames.join(", ")}</span>
                 </div>
                 :
                 null

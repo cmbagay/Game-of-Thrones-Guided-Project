@@ -1,4 +1,7 @@
 import axios from "axios";
+import { MemoryCacheService } from "./MemoryCacheService";
+
+const memoryCacheService = MemoryCacheService.getInstance();
 
 class ASOIAFapi {
   static prepareResponse() {
@@ -11,6 +14,25 @@ class ASOIAFapi {
   static async isNumber(num) {
     const result = typeof num === "number";
     return result;
+  }
+
+  static async getData(url) {
+    const response = this.prepareResponse();
+
+    try {
+      if (memoryCacheService.contains(url)) {
+        console.log(`Fetching from cache: ${url}`);
+        response.data = memoryCacheService.getById(url);
+      } else {
+        const result = await axios.get(url);
+        response.data = result.data;
+        memoryCacheService.addOrUpdate(url, result.data, 3600);
+      }
+    } catch (error) {
+      response.isError = true;
+      response.data = error;
+    }
+    return Promise.resolve(response);
   }
 
   static async getHouses(p, ps) {
