@@ -1,16 +1,25 @@
-div{
+.character__div {
   display: flex;
-	flex-direction: column;
-	align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  
+    min-height: 0;
+}
+
+.character__div{
+  margin: 50%;
 }
 
 .character
 {
-  width: 15vw;
-  height: 15vh;
+  display: flex;
+	flex-direction: column;
+	align-items: center;
+
+
   margin: 2rem;
   padding: 2rem;
-
 }
 
 .character--selected
@@ -25,6 +34,8 @@ div{
 
 .character__info
 {
-  font-size: 1rem;
+  font-size: 2rem;
 }
+
+
 

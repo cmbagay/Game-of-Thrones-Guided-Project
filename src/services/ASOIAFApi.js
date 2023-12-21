@@ -69,27 +69,18 @@ class ASOIAFapi {
     return response;
   }
 
-  // static async getCharacterById({ id }) {
-  //   const response = prepareResponse();
+  static async getCharacterByURL({ url }) {
+    const response = this.prepareResponse();
+    try {
+      const result = await axios.get(url);
+      response.data = result.data;
+    } catch (error) {
+      response.isError = true;
+      response.data = error;
+    }
 
-  //   try {
-  //     const mockDb = getMockDb();
-
-  //     for (let i = 0; i < mockDb.character.length; i++) {
-  //       const character = mockDb.character[i];
-
-  //       if (character.id === id) {
-  //         response.data = character;
-  //         break;
-  //       }
-  //     }
-  //   } catch (error) {
-  //     response.isError = true;
-  //     response.data = error;
-  //   }
-
-  //   return response;
-  // }
+    return response;
+  }
 }
 
 export default ASOIAFapi;

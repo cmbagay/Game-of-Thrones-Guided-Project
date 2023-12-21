@@ -1,11 +1,8 @@
-div.houses {
+.houses__div {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  width: 30vw;
-  height: 25vh;
-  overflow: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .houses
@@ -14,21 +11,23 @@ div.houses {
 	flex-direction: column;
 	align-items: center;
 
+  max-width: 75vw;
+
   margin: 2rem;
   padding: 2rem;
   border: 2px dotted #ffffff;
 
-  word-wrap: break-word;
+  flex-wrap: wrap;
+  text-wrap: wrap;
 }
-
-.houses--selected
-{
-  border-color: #ce3d3d;
-}
-
 
 .houses__info
 {
-  font-size: 1.5rem;
+  font-size: 1rem;
+
 }
 
+.houses__infoContainer{
+  max-width: 50vw;
+  text-wrap: wrap;
+}

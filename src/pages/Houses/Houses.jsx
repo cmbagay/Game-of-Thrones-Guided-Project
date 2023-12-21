@@ -8,13 +8,13 @@ import { useLocation } from "react-router-dom";
 function Houses() {
 
     const [houses, sethouses] = useState([]);
+    const [name, setName] = useState([]);
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
 
     const page = parseInt(queryParams.get('page'), 10);
     const pageSize = parseInt(queryParams.get('pageSize'), 10);
  
-    console.log(pageSize);  
     useEffect(() => {
       
       async function getHouses(){
@@ -24,14 +24,27 @@ function Houses() {
         }
       }
 
-    getHouses();
-    return () => {}
-  }, [page, pageSize])
+      
 
+      getHouses();
+
+      return () => {}
+    }, [page, pageSize])
+
+    async function getCharacterByURL(url){
+      console.log(url);
+      const {data: name, isError} = await ASOIAFapi.getCharacterByURL({url})
+      if(!isError){
+        setName(name);
+      }
+      console.log(name);
+      return name;
+    }
+  
 
   return (
     <>
-      <div>
+      <div className="houses__div">
         {
           houses.map((houses, index) => 
           <div key={houses.id} className={styles["houses"]}>
@@ -40,17 +53,32 @@ function Houses() {
                 <span><h4>{houses.name}</h4></span>
               </div>
 
-              <div className={styles["houses__info"]}>
-                <span>titles: {houses.titles}</span>
-              </div>
+              {
+                houses.titles ?
+                <div className={styles["houses__info"]}>
+                  <span>{houses.titles}</span>
+                </div>
+                :
+                null
+              }
 
-              <div className={styles["houses__info"]}>
-                <span>current lord: {houses.currentLord}</span>
-              </div>
+              {
+                name === "" ?
+                <div className={styles["houses__info"]}>
+                  <span>Current Lord: {name}</span>
+                </div>
+                :
+                null
+              }
 
-              <div className={styles["houses__info"]}>
-                <span>sworn members: {houses.swornMembers}</span>
-              </div>
+              {
+                name === "" ?
+                <div className={styles["houses__info"]}>
+                  <span>Sworn Members: {name}</span>
+                </div>
+                :
+                null
+              }
             </div>
           </div>
         )}
