@@ -56,7 +56,7 @@ function Houses() {
               {
                 houses.titles ?
                 <div className={styles["houses__info"]}>
-                  <span>{houses.titles}</span>
+                  <span>{houses.titles.join(", ")}</span>
                 </div>
                 :
                 null
