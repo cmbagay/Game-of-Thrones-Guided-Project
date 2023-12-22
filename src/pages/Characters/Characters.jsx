@@ -1,5 +1,6 @@
 import styles from "./Characters.module.css";
 import ASOIAFapi from "../../services/ASOIAFApi";
+import Pagination from "../../components/Pagination/Pagination";
 
 import {useEffect, useState} from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -26,7 +27,10 @@ function Characters() {
   }, [page, pageSize])
 
   return (
-      <div className="characters__div">
+    <>
+    <Pagination page={1} pageSize={10} />
+
+    <div className="characters__div">
         {
           characters.map((characters, index) => 
           <Link to={`/character/${characters.id}`}>
@@ -81,6 +85,10 @@ function Characters() {
           )
         }
       </div>
+
+    <Pagination page={1} pageSize={10} />
+    </>
+     
   );
 }
 

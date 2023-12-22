@@ -3,6 +3,7 @@ import ASOIAFapi from "../../services/ASOIAFApi";
 
 import {useEffect, useState} from "react";
 import { useLocation } from "react-router-dom";
+import Pagination from "../../components/Pagination/Pagination";
 
 
 function Houses() {
@@ -58,6 +59,7 @@ function Houses() {
 
   return (
     <>
+      <Pagination page={1} pageSize={10} />
       <div className="houses__div">
         {
           houses.map((houses, index) => 
@@ -76,27 +78,19 @@ function Houses() {
                 null
               }
 
-              {
-                houses.currentLordName ?
                 <div className={styles["houses__info"]}>
                   <span>Current Lord: {houses.currentLordName}</span>
                 </div>
-                :
-                null
-              }
-
-              {
-                houses.swornMemberNames ?
+              
                 <div className={styles["houses__info"]}>
                   <span>Sworn Members: {houses.swornMemberNames.join(", ")}</span>
                 </div>
-                :
-                null
-              }
+ 
             </div>
           </div>
         )}
       </div>
+      <Pagination page={1} pageSize={10} />
     </>
   );
 }

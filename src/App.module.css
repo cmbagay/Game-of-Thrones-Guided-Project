@@ -5,6 +5,10 @@
     justify-content: center;
     width: 100vw;
     min-height: 100vh;
+
+    background: url("https://live.staticflickr.com/4008/4645077417_13bf07086f_o.jpg")no-repeat center center fixed;
+    background-size: 100vw 100vh;
+
   }
   
 .app__header
@@ -20,6 +24,7 @@
   justify-content: center;
   align-items: flex-end;
   align-content: center;
+
 }
 
 .app__main {
@@ -32,26 +37,34 @@
   overflow: auto;
   scrollbar-width: thin;
   scrollbar-color: #1b1b1b, 10, 7;
+
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif, serif;
+  color: #1f1d17;
 }
 
-.app
-main {
-    
-  background-image: url("https://www.nicepng.com/png/full/55-554479_vinilos-game-of-thrones-house-targaryen-transparent.png");
-  background-repeat: no-repeat;
-  height: 50vh;
-  background-position: center;
-
+ul{
+  padding-inline-start: 0px;
+  list-style-type: none;
+  padding: 0;
 }
 
-h1 {
-  font-size: 5rem;
+li {
+  display: inline;
   text-align: center;
-  margin: 20px
+
 }
 
-h2{
-  font-size: 3rem;
-  text-align: center;
+a{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  padding: 10px;
+  color: hwb(45 66% 0%);
 }
+
+a:hover{
+  color: bisque;
+}
+
+
+
+
 

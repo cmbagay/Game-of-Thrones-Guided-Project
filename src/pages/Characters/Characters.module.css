@@ -38,3 +38,7 @@
   font-size: 2rem;
 }
 
+.characters a {
+  padding: 10px;
+  color: white;
+}

@@ -1,5 +1,20 @@
+/* .Homepage{
+    background-color: rgba(0, 0, 0, 0.75);
+} */
+
 div.Homepage{
     margin: auto;
+    overflow: hidden;
 }
  
+.Homepage h1{
+    font-size: 5rem;
+    text-align: center;
+    margin: 20px
+}
+  
+.Homepage h2{
+    font-size: 3rem;
+    text-align: center;
+}
   
