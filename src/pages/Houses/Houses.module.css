@@ -5,37 +5,33 @@
     align-content: center;
     justify-content: center;
     flex-direction: row;
-    
+    min-height: 0;
 }
 
 .houses
 {
-  display: flex;
-	flex-direction: column;
-  justify-content: center;
-
   margin: 2rem;
   padding: 2rem;
   background-color: hwb(51 63% 16% / 0.249);
   border-radius: 5%;
 
+  width: 25rem;
   height: 25rem;
-  width: 25vw;
-
-  overflow:auto;
+  overflow: auto;
 }
 
 
 .houses__info
 {
   font-size: 1.5rem;
+  color: #1f1d17;
   font-style: italic;
-
-  padding: 1px;
 }
 
 .houses__info__name{
-
   font-size: 2rem;
+  font-style: bold;
+  text-decoration: underline;
   text-align: center;
 }
+
