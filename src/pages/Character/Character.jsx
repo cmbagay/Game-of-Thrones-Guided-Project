@@ -13,42 +13,8 @@ function Character() {
   async function getCharacter(){
     const {data: character, isError} = await ASOIAFapi.getCharacterById({id});
 
-    const mappedCharacter = await Promise.all(character.map(async(character) => {
-      let fatherName = "";
-
-      if ( character.fatherName) {
-        const fatherNameData = await ASOIAFapi.getName(character.fatherName)
-        if (!fatherNameData.isError) {
-          fatherName = fatherNameData.data.name;
-        }
-      }
-
-      let motherName = "";
-
-      if ( character.motherName) {
-        const motherNameData = await ASOIAFapi.getName(character.motherName)
-        if (!motherNameData.isError) {
-          motherName = motherNameData.data.name;
-        }
-      }
-
-      let spouseName = "";
-
-      if ( character.spouseName) {
-        const spouseNameData = await ASOIAFapi.getName(character.spouseName)
-        if (!spouseNameData.isError) {
-          spouseName = spouseNameData.data.name;
-        }
-      }
-
-
-      return {...character, fatherName, motherName, spouseName  }
-    }));
-    console.log("mappedCharacter : ", mappedCharacter);
-
     if(!isError){
       setCharacter(character);
-      setCharacter(mappedCharacter)
     }
 
     return () => {}
@@ -131,18 +97,7 @@ function Character() {
                     <span>Titles: none </span>
                 </div>
               }
-              
-              <div className={styles["character__info"]}>
-                <span>Father: {character.fatherName}</span>
-              </div>
-
-              <div className={styles["character__info"]}>
-                <span>Mother: {character.motherName}</span>
-              </div>
-
-              <div className={styles["character__info"]}>
-                <span>Spouse: {character.spouseName}</span>
-              </div>              
+           
             </div>
           </div>
       </div>

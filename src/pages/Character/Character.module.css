@@ -14,37 +14,29 @@
 	flex-direction: column;
 	align-items: center;
 
-
   margin: 2rem;
   padding: 2rem;
+
+  overflow:auto;
 }
 
 .character__infoContainer{
   padding: 5rem;
-  background-color: rgba(0, 0, 0, 0.213);
-  border-color: rgba(0, 0, 0, 0.213);
   border-radius: 5%;
-}
-
-.character--selected
-{
-  border-color: #ce3d3d;
-}
-
-.character:not(.character--selected):hover
-{
-  border-color: red;
+  background-color: hwb(51 63% 16% / 0.249);
 }
 
 .character__info__name
 {
   font: bold center;
   text-decoration: underline;
-  font-size: 3rem;
+  font-size: 5rem;
+  text-align: center;
 
+  padding: 1rem;
 }
 
 .character__info
 {
-  font-size: 2.5rem;
+  font-size: 4.5rem;
 }

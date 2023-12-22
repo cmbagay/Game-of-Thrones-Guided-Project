@@ -13,23 +13,31 @@
   display: flex;
 	flex-direction: column;
 	align-items: center;
+  align-items: center;
+    align-content: center;
+    justify-content: center;
 
 
   margin: 2rem;
   padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.213);
-  border-color: rgba(0, 0, 0, 0.213);
+  background-color: hwb(51 63% 16% / 0.249);
   border-radius: 5%;
+
+  height: 15rem;
+  width: 15rem;
 }
 
 
 .characters__info
 {
-  font-size: 1rem;
+  font-size: 1.5rem;
+  color: #1f1d17;
+  font-style: italic;
 }
 
 .characters__info__name{
   font-size: 2rem;
+  font-style: bold;
 }
 
 .characters a {

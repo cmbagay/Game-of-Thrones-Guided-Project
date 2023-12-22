@@ -5,7 +5,7 @@
     align-content: center;
     justify-content: center;
     flex-direction: row;
-    min-height: 0;
+    
 }
 
 .houses
@@ -15,31 +15,24 @@
 
   margin: 2rem;
   padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.213);
-  border-color: rgba(0, 0, 0, 0.213);
+  background-color: hwb(51 63% 16% / 0.249);
   border-radius: 5%;
+
+  height: 25rem;
+  width: 25vw;
+
+  overflow:auto;
 }
 
-.houses--selected
-{
-  border-color: #ce3d3d;
-}
-
-.houses:not(.houses--selected):hover
-{
-  border-color: red;
-}
 
 .houses__info
 {
-  font-size: 1rem;
+  font-size: 1.5rem;
+  font-style: italic;
 }
 
 .houses__info__name{
-  font-size: 2rem;
-}
 
-.houses a {
-  padding: 10px;
-  color: white;
+  font-size: 2rem;
+  text-align: center;
 }

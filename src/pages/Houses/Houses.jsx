@@ -60,7 +60,7 @@ function Houses() {
   return (
     <>
       <Pagination page={1} pageSize={10} />
-      <div className="houses__div">
+      <div className={styles["houses__div"]}>
         {
           houses.map((houses, index) => 
           <div key={houses.id} className={styles["houses"]}>
