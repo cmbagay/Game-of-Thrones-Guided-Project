@@ -81,8 +81,14 @@ class ASOIAFapi {
     const url = `https://anapioficeandfire.com/api/characters/${id}`;
     const response = this.prepareResponse();
     try {
-      const result = await axios.get(url);
-      response.data = result.data;
+      if (memoryCacheService.contains(url)) {
+        console.log(`Fetching from cache: ${url}`);
+        response.data = memoryCacheService.getById(url);
+      } else {
+        const result = await axios.get(url);
+        response.data = result.data;
+        memoryCacheService.addOrUpdate(url, result.data, 3600);
+      }
     } catch (error) {
       response.isError = true;
       response.data = error;
