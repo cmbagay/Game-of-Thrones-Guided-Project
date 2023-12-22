@@ -60,7 +60,7 @@ function Houses() {
   return (
     <>
       <Pagination page={1} pageSize={10} />
-      <div className={styles["houses__div"]}>
+      <div className={["houses__div"]}>
         {
           houses.map((houses, index) => 
           <div key={houses.id} className={styles["houses"]}>
@@ -77,14 +77,15 @@ function Houses() {
                 :
                 null
               }
-
+              
                 <div className={styles["houses__info"]}>
                   <span>Current Lord: {houses.currentLordName}</span>
                 </div>
-              
+
                 <div className={styles["houses__info"]}>
                   <span>Sworn Members: {houses.swornMemberNames.join(", ")}</span>
                 </div>
+
  
             </div>
           </div>
