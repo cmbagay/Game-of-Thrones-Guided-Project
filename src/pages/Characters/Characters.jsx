@@ -33,7 +33,7 @@ function Characters() {
     <div className={styles["characters__div"]}>
         {
           characters.map((characters, index) => 
-          <Link to={`/character/${index+1}`}>
+          <Link to={`/character/${(index + 1)+((page - 1)* pageSize)}`}>
           <div key={characters.id} className={styles["characters"]}>
              <div className={styles["characters__infoContainer"]}>
 
