@@ -1,9 +1,10 @@
 .characters__div {
   display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
     justify-content: center;
-  
+    flex-direction: row;
     min-height: 0;
 }
 
@@ -16,18 +17,11 @@
 
   margin: 2rem;
   padding: 2rem;
-  border: 2px dotted #ffffff;
+  background-color: rgba(0, 0, 0, 0.213);
+  border-color: rgba(0, 0, 0, 0.213);
+  border-radius: 5%;
 }
 
-.characters--selected
-{
-  border-color: #ce3d3d;
-}
-
-.characters:not(.characters--selected):hover
-{
-  border-color: red;
-}
 
 .characters__info
 {
@@ -41,4 +35,5 @@
 .characters a {
   padding: 10px;
   color: white;
+  text-decoration: none;
 }

@@ -23,14 +23,14 @@ function Houses() {
         let currentLordName = "";
         let swornMemberNames = [];
         if ( house.currentLord) {
-          const currentLordData = await ASOIAFapi.getData(house.currentLord)
+          const currentLordData = await ASOIAFapi.getName(house.currentLord)
           if (!currentLordData.isError) {
             currentLordName = currentLordData.data.name;
           }
         }
 
         if (house.swornMembers && Array.isArray(house.swornMembers) && house.swornMembers.length > 0) {
-          const swornMemberData = await Promise.all(house.swornMembers.map(u => ASOIAFapi.getData(u)));
+          const swornMemberData = await Promise.all(house.swornMembers.map(u => ASOIAFapi.getName(u)));
           swornMemberData.forEach(member => {
             if (!member.isError) {
               swornMemberNames.push(member.data.name);
@@ -65,7 +65,7 @@ function Houses() {
           houses.map((houses, index) => 
           <div key={houses.id} className={styles["houses"]}>
             <div className={styles["houses__infoContainer"]}>
-              <div className={styles["houses__info"]}>
+              <div className={styles["houses__info__name"]}>
                 <span><h4>{houses.name}</h4></span>
               </div>
 

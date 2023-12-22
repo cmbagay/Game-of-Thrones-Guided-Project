@@ -16,7 +16,7 @@ class ASOIAFapi {
     return result;
   }
 
-  static async getData(url) {
+  static async getName(url) {
     const response = this.prepareResponse();
 
     try {
@@ -79,19 +79,6 @@ class ASOIAFapi {
 
   static async getCharacterById({ id }) {
     const url = `https://anapioficeandfire.com/api/characters/${id}`;
-    const response = this.prepareResponse();
-    try {
-      const result = await axios.get(url);
-      response.data = result.data;
-    } catch (error) {
-      response.isError = true;
-      response.data = error;
-    }
-
-    return response;
-  }
-
-  static async getCharacterByURL({ url }) {
     const response = this.prepareResponse();
     try {
       const result = await axios.get(url);

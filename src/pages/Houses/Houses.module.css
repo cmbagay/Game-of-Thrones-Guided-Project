@@ -1,33 +1,42 @@
 .houses__div {
   display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
     justify-content: center;
+    flex-direction: row;
+    min-height: 0;
 }
 
 .houses
 {
   display: flex;
-  
-  max-width: 75vw;
+	flex-direction: column;
 
   margin: 2rem;
   padding: 2rem;
-  border: 2px dotted #ffffff;
+  background-color: rgba(0, 0, 0, 0.213);
+  border-color: rgba(0, 0, 0, 0.213);
+  border-radius: 5%;
+}
 
-  flex-wrap: wrap;
-  text-wrap: wrap;
+.houses--selected
+{
+  border-color: #ce3d3d;
+}
+
+.houses:not(.houses--selected):hover
+{
+  border-color: red;
 }
 
 .houses__info
 {
   font-size: 1rem;
-
 }
 
-.houses__infoContainer{
-  max-width: 50vw;
-  text-wrap: wrap;
+.houses__info__name{
+  font-size: 2rem;
 }
 
 .houses a {

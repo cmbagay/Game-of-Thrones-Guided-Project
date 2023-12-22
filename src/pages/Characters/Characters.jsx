@@ -30,10 +30,10 @@ function Characters() {
     <>
     <Pagination page={1} pageSize={10} />
 
-    <div className="characters__div">
+    <div className={styles["characters__div"]}>
         {
           characters.map((characters, index) => 
-          <Link to={`/character/${characters.id}`}>
+          <Link to={`/character/${index}`}>
           <div key={characters.id} className={styles["characters"]}>
              <div className={styles["characters__infoContainer"]}>
 
