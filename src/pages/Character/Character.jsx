@@ -24,9 +24,18 @@ function Character() {
   
   return (
       <div className="character__div">
-          <div key={character.id} className={styles["character"]}>
-             <div className={styles["character__infoContainer"]}>
-             {
+        <div key={character.id} className={styles["character"]}>
+            <div className={styles["character__infoContainer"]}>
+            {
+                character.titles ? 
+                <div className={styles["character__info__name_3"]}>
+                  <span>{character.titles.join(", ")}</span>
+                </div>
+                :
+                null
+              }
+
+              {
                 character.name ? 
                 <div className={styles["character__info__name"]}>
                     <span>{character.name}</span>
@@ -35,20 +44,12 @@ function Character() {
               } 
 
               {
-                character.alias ? 
-                <div className={styles["character__info__name"]}>
-                    <span>alias: {character.alias}</span>
+                character.aliases ? 
+                <div className={styles["character__info__name_2"]}>
+                    <span>{character.aliases.join(", ")}</span>
                 </div>
                 : null
               } 
-
-              {
-                !character.name && !character.alias ? 
-                <div className={styles["character__info__name"]}>
-                    <span>Unnamed</span>
-                </div> :
-                null 
-              }
 
               {
                 character.culture ? 
@@ -84,17 +85,6 @@ function Character() {
                 :
                 <div className={styles["character__info"]}>
                     <span>Died: Not Applicable</span>
-                </div>
-              }
-
-              {
-                character.titles ? 
-                <div className={styles["character__info"]}>
-                  <span>Titles: {character.titles.join(", ")}</span>
-                </div>
-                :
-                <div className={styles["character__info"]}>
-                    <span>Titles: none </span>
                 </div>
               }
            

@@ -36,7 +36,23 @@
   padding: 1rem;
 }
 
+.character__info__name_2
+{
+  font: center;
+  font-size: 3rem;
+  text-align: center;
+
+}
+
+.character__info__name_3
+{
+  font: center;
+  font-size: 2rem;
+  text-align: center;
+
+}
+
 .character__info
 {
-  font-size: 4.5rem;
+  font-size: 3.5rem;
 }
